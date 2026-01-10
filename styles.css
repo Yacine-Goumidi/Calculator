@@ -24,7 +24,7 @@ body {
     width: 350px;
 }
 
-/* Calculator title */
+/* Calculator Title */
 .title {
     width: 100%;
     padding: 12px;
@@ -41,7 +41,7 @@ body {
 /* Calculator display */
 input {
     width: 100%;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     padding: 15px;
     border: none;
     background-color: #f7f7f7;
