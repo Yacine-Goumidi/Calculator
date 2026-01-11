@@ -1,107 +1,96 @@
-# Calculatrice Portfolio
+# Calculator Portfolio
 
-![Calculatrice Preview](/Assets/CalculatorScreenshot.png)
+![Calculator Preview](/Assets/CalculatorScreenshot.png)
 
-## 🚀 Présentation
+## 🚀 Overview
 
-Ce projet est une **calculatrice web moderne**, développée dans le cadre d’un portfolio front-end.  
-Il a été conçu pour démontrer **la maîtrise du HTML, CSS et JavaScript moderne**, ainsi que des bonnes pratiques de développement web.
+This project is a **modern web calculator**, developed as part of a front-end portfolio.  
+It was designed to showcase **proficiency in modern HTML, CSS, and JavaScript**, as well as **best practices in web development**.
 
-L’objectif est de fournir une **expérience utilisateur fluide**, un **design moderne et responsive**, et un **code propre et maintenable**, tout en restant simple et fonctionnel.
-
----
-
-## 🎯 Objectifs du projet
-
-- Développer une **interface utilisateur élégante et responsive**.
-- Implémenter une **logique de calcul fiable** avec un état centralisé (`state`).
-- Utiliser des **bonnes pratiques JS modernes** (event delegation, `data-attributes`, fonctions modulaires).
-- Garantir une **séparation claire HTML / CSS / JS**.
-- Produire un projet **portfolio-ready**, lisible et défendable à l’oral.
+The goal is to provide a **smooth user experience**, a **modern and responsive design**, and **clean, maintainable code**, while keeping the application simple and functional.
 
 ---
 
-## 🛠 Technologies utilisées
+## 🎯 Project Goals
 
-- **HTML5** – structure sémantique et accessible.
-- **CSS3** – design moderne, variables CSS, responsive layout avec Grid et Media Queries.
-- **JavaScript ES6+** – logique de calcul, event delegation, gestion de l’état.
-- **Fonts Google** – `Inter` et `JetBrains Mono` pour lisibilité et style moderne.
-
----
-
-## ⚙ Fonctionnalités
-
-- Saisie des **chiffres et opérateurs** (`+`, `−`, `×`, `÷`).
-- Gestion du **0 sur deux colonnes** et du bouton **=** occupant toute la ligne.
-- **Effet visuel interactif** sur les boutons (hover, active, focus).
-- **Affichage clair et lisible** avec police monospace.
-- **Responsive design** pour smartphone, tablette et desktop.
-- Gestion des **erreurs de calcul** avec message `Error`.
+- Develop an **elegant and responsive user interface**.  
+- Implement a **reliable calculation logic** with a centralized state (`state`).  
+- Apply **modern JS best practices** (event delegation, `data-attributes`, modular functions).  
+- Ensure a **clear separation of HTML, CSS, and JS**.  
+- Deliver a **portfolio-ready project**, readable and presentable.
 
 ---
 
-## 💡 Problématiques rencontrées
+## 🛠 Technologies Used
 
-1. **Gestion de l’état et logique de calcul**
-   - Initialement `eval()` et concaténation de chaînes.
-   - Solution : état centralisé (`state`) + fonction `sanitize()`.
-
-2. **Séparation HTML / JS**
-   - Problème : `onclick` inline non maintenable.
-   - Solution : event delegation + `data-*` attributes.
-
-3. **UI / Alignement**
-   - Chiffres et boutons 0 / = mal positionnés.
-   - Solution : CSS Grid et `grid-column: span ...`.
-
-4. **UX et feedback**
-   - Symboles confus et absence d’erreur visible.
-   - Solution : monospace + message d’erreur.
-
-5. **Responsive**
-   - Design initial non adapté aux mobiles.
-   - Solution : Media Queries et ajustement tailles boutons/display.
-
-6. **Sécurité JS**
-   - Utilisation de `eval()` risquée.
-   - Solution : `Function()` avec `sanitize()` pour les opérateurs.
+- **HTML5** – semantic and accessible structure.  
+- **CSS3** – modern design, CSS variables, responsive layout with Grid and Media Queries.  
+- **JavaScript ES6+** – calculation logic, event delegation, state management.  
+- **Google Fonts** – `Inter` and `JetBrains Mono` for readability and modern style.
 
 ---
 
-## 📐 Structure du projet
-calculatrice-portfolio/
-├─ index.html
-├─ styles.css
-├─ script.js
-├─ README.md
-└─ assets/
-    └─ screenshot.png
+## ⚙ Features
+
+- Input of **numbers and operators** (`+`, `−`, `×`, `÷`).  
+- Management of **0 spanning two columns** and the **= button taking the entire bottom row**.  
+- **Interactive button effects** (hover, active, focus).  
+- **Clear and readable display** with monospace font.  
+- **Responsive design** for smartphones, tablets, and desktops.  
+- Error handling with an **“Error” message** for invalid calculations.
 
 ---
 
-## 🎨 UI / UX
+## 💡 Challenges Encountered
 
-- **Couleurs :**
-  - Chiffres : léger verre flou (`rgba`)  
-  - Opérateurs : gradient orange  
-  - Clear : gradient rouge  
-  - Equal : gradient turquoise  
-- **Police monospace** pour lisibilité des chiffres et opérations.
-- **Boutons interactifs** : hover, active, focus.
+1. **State and calculation logic**  
+   - Initially used `eval()` and string concatenation.  
+   - Solution: centralized state (`state`) + `sanitize()` function.
+
+2. **HTML / JS separation**  
+   - Issue: inline `onclick` attributes were not maintainable.  
+   - Solution: event delegation + `data-*` attributes.
+
+3. **UI / Alignment**  
+   - Numbers, 0, and = buttons were misaligned.  
+   - Solution: CSS Grid and `grid-column: span ...`.
+
+4. **UX and feedback**  
+   - Confusing symbols and no visible error feedback.  
+   - Solution: monospace font + error message.
+
+5. **Responsive design**  
+   - Initial layout not mobile-friendly.  
+   - Solution: Media Queries and adjusted button/display sizes.
+
+6. **JS security**  
+   - Using `eval()` was risky.  
+   - Solution: `Function()` with `sanitize()` to handle operators safely.
+
+---
+
+## 🎨 UI / UX Design
+
+- **Colors:**  
+  - Numbers: light glass effect (`rgba`)  
+  - Operators: orange gradient  
+  - Clear: red gradient  
+  - Equal: turquoise gradient  
+- **Monospace font** for clear number and operator display.  
+- **Interactive buttons**: hover, active, focus.
 
 ---
 
 ## 📱 Responsive
 
-- Smartphones : ajustement taille boutons et display.
-- Tablettes : légère augmentation des boutons.
-- Desktop : layout original maintenu.
+- **Smartphones:** button and display sizes adjusted.  
+- **Tablets:** slightly larger buttons.  
+- **Desktop:** original layout preserved.
 
 ---
 
-## 🔧 Installation et utilisation
+## 🔧 Installation & Usage
 
-1. **Cloner le projet :**
+1. **Clone the repository:**
 ```bash
 git clone https://github.com/Yacine-Goumidi/Calculator.git
