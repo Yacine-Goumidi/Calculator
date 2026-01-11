@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@500;600&display=swap');
 
-/* Reset */
+/* ───────────────────────── */
+/* Reset                     */
+/* ───────────────────────── */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body */
+/* ───────────────────────── */
+/* Body                      */
+/* ───────────────────────── */
 body {
     display: flex;
     justify-content: center;
@@ -18,7 +22,9 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-/* Calculator */
+/* ───────────────────────── */
+/* Calculator container      */
+/* ───────────────────────── */
 .calculator {
     width: 100%;
     max-width: 340px;
@@ -32,60 +38,72 @@ body {
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Title */
+/* ───────────────────────── */
+/* Title                     */
+/* ───────────────────────── */
 .title {
     text-align: center;
-    margin-bottom: 18px;
-    font-size: 1.3rem;
+    margin-bottom: 14px;
+    font-size: 1.2rem;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.85);
+    opacity: 0.9;
 }
 
-/* Display */
+/* ───────────────────────── */
+/* Display                   */
+/* ───────────────────────── */
 input {
     width: 100%;
-    padding: 18px;
-    margin-bottom: 22px;
-    font-size: 1.8rem;
-    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 24px;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    border-radius: 16px;
     border: none;
     text-align: right;
     color: white;
-    background: rgba(255, 255, 255, 0.12);
-    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.45);
     font-family: 'JetBrains Mono', monospace;
     pointer-events: none;
 }
 
-/* Buttons grid */
+/* ───────────────────────── */
+/* Buttons grid              */
+/* ───────────────────────── */
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 14px;
 }
 
-/* Base button */
+/* ───────────────────────── */
+/* Base button               */
+/* ───────────────────────── */
 button {
-    padding: 16px;
-    font-size: 1.4rem;
+    padding: 15px;
+    font-size: 1.35rem;
     border-radius: 14px;
     border: none;
     cursor: pointer;
     color: white;
-    background: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.16);
     box-shadow:
         0 6px 14px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-/* States */
+/* ───────────────────────── */
+/* Button states             */
+/* ───────────────────────── */
 button:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1.5px);
 }
 
 button:active {
-    transform: scale(0.96);
+    transform: scale(0.97);
 }
 
 button:focus-visible {
@@ -93,59 +111,67 @@ button:focus-visible {
     outline-offset: 2px;
 }
 
-/* Numbers */
+/* ───────────────────────── */
+/* Numbers                   */
+/* ───────────────────────── */
 .number {
     font-family: 'JetBrains Mono', monospace;
-    background: rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.18);
 }
 
 .number:hover {
-    background: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.24);
 }
 
-/* Zero */
+/* Zero (2 columns) */
 .zero {
     grid-column: span 2;
 }
 
-/* Operators */
+/* ───────────────────────── */
+/* Operators                 */
+/* ───────────────────────── */
 .operator {
-    background: linear-gradient(135deg, #ffb703, #fb8500);
+    background: linear-gradient(135deg, #fcbf49, #f77f00);
     color: #1a1a1a;
     font-weight: 600;
 }
 
-.divide {
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-}
-
-/* Clear */
+/* ───────────────────────── */
+/* Clear                     */
+/* ───────────────────────── */
 .clear {
-    background: linear-gradient(135deg, #ef476f, #d62839);
+    background: linear-gradient(135deg, #e63946, #c1121f);
     font-weight: 600;
 }
 
-/* Equal */
+/* ───────────────────────── */
+/* Equal (3 columns)         */
+/* ───────────────────────── */
 .equal {
-    grid-column: span 2;
-    background: linear-gradient(135deg, #06d6a0, #00b894);
+    grid-column: span 3;
+    background: linear-gradient(135deg, #2ec4b6, #00b4a6);
     font-weight: 600;
 }
 
-/* Responsive */
+/* ───────────────────────── */
+/* Responsive                */
+/* ───────────────────────── */
 @media (max-width: 480px) {
+    input {
+        font-size: 1.7rem;
+        padding: 18px;
+    }
+
     button {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         padding: 14px;
     }
-
-    input {
-        font-size: 1.6rem;
-    }
 }
 
-/* Mobile touch */
+/* ───────────────────────── */
+/* Touch devices             */
+/* ───────────────────────── */
 @media (hover: none) {
     button:hover {
         transform: none;
