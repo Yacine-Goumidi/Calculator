@@ -1,6 +1,4 @@
-/* ───────────────────────── */
-/* Reset & Base Styles       */
-/* ───────────────────────── */
+/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
@@ -17,9 +15,7 @@ body {
     font-family: 'Inter', 'Roboto', sans-serif;
 }
 
-/* ───────────────────────── */
-/* Calculator Container      */
-/* ───────────────────────── */
+/* Calculator Container */
 .calculator {
     width: 100%;
     max-width: 340px;
@@ -42,7 +38,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Display / Screen */
+/* Display */
 input {
     width: 100%;
     padding: 18px;
@@ -58,16 +54,14 @@ input {
     pointer-events: none;
 }
 
-/* ───────────────────────── */
-/* Buttons Grid              */
-/* ───────────────────────── */
+/* Buttons Grid */
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 14px;
 }
 
-/* Base Button Styles */
+/* Base Button */
 button {
     padding: 16px;
     font-size: 1.4rem;
@@ -96,15 +90,19 @@ button:focus-visible {
     outline-offset: 2px;
 }
 
-/* ───────────────────────── */
-/* Button Types              */
-/* ───────────────────────── */
+/* Button Types */
+.number {
+    background: rgba(255, 255, 255, 0.16);
+}
+.number:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
 .operator {
     background: linear-gradient(135deg, #ffb703, #fb8500);
     color: #1a1a1a;
     font-weight: 600;
 }
-
 .operator:hover {
     background: linear-gradient(135deg, #ffc933, #ff9f1c);
 }
@@ -113,32 +111,20 @@ button:focus-visible {
     background: linear-gradient(135deg, #ef476f, #d62839);
     font-weight: 600;
 }
-
 .clear:hover {
     background: linear-gradient(135deg, #ff5c8a, #e63946);
 }
 
 .equal {
-    grid-column: span 2;
+    grid-column: span 4; /* s'étend sur toute la largeur */
     background: linear-gradient(135deg, #06d6a0, #00b894);
     font-weight: 600;
 }
-
 .equal:hover {
     background: linear-gradient(135deg, #1dd3b0, #00cec9);
 }
 
-.number {
-    background: rgba(255, 255, 255, 0.16);
-}
-
-.number:hover {
-    background: rgba(255, 255, 255, 0.22);
-}
-
-/* ───────────────────────── */
 /* Responsive – Mobile First */
-/* ───────────────────────── */
 @media (max-width: 480px) {
     .calculator {
         padding: 20px;
@@ -171,9 +157,7 @@ button:focus-visible {
     }
 }
 
-/* ───────────────────────── */
-/* UX Tactile (Mobile / No Hover) */
-/* ───────────────────────── */
+/* UX tactile – mobile/no hover */
 @media (hover: none) {
     button:hover {
         transform: none;
