@@ -1,25 +1,31 @@
 let currentExpression = '';
+const resultInput = document.getElementById('result');
 
-function appendNumber(number) {
-    currentExpression += number;
-    document.getElementById('result').value = currentExpression;
+function appendNumber(value) {
+    currentExpression += value;
+    resultInput.value = currentExpression;
 }
 
 function appendOperator(operator) {
     currentExpression += ` ${operator} `;
-    document.getElementById('result').value = currentExpression;
+    resultInput.value = currentExpression;
 }
 
 function calculateResult() {
     try {
-        currentExpression = eval(currentExpression.replace('÷', '/').replace('×', '*'));
-        document.getElementById('result').value = currentExpression;
-    } catch {
-        document.getElementById('result').value = 'Error';
+        const sanitizedExpression = currentExpression
+            .replace(/÷/g, '/')
+            .replace(/×/g, '*');
+
+        currentExpression = eval(sanitizedExpression);
+        resultInput.value = currentExpression;
+    } catch (error) {
+        resultInput.value = 'Error';
+        currentExpression = '';
     }
 }
 
 function clearResult() {
     currentExpression = '';
-    document.getElementById('result').value = '';
+    resultInput.value = '';
 }
