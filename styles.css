@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@500;600&display=swap');
 
+:root {
+    --bg-main: radial-gradient(circle at top, #1e1e2f, #0f0f1a);
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.12);
+
+    --radius-lg: 22px;
+    --radius-md: 14px;
+
+    --color-number: rgba(255, 255, 255, 0.18);
+    --color-operator: linear-gradient(135deg, #fcbf49, #f77f00);
+    --color-clear: linear-gradient(135deg, #e63946, #c1121f);
+    --color-equal: linear-gradient(135deg, #2ec4b6, #00b4a6);
+}
+
 /* Reset */
 * {
     margin: 0;
@@ -9,12 +23,12 @@
 
 /* Layout */
 body {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     padding: 16px;
-    background: radial-gradient(circle at top, #1e1e2f, #0f0f1a);
+    background: var(--bg-main);
     font-family: 'Inter', sans-serif;
 }
 
@@ -23,10 +37,10 @@ body {
     width: 100%;
     max-width: 340px;
     padding: 28px;
-    border-radius: 22px;
-    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    background: var(--glass-bg);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--glass-border);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -40,7 +54,7 @@ body {
 }
 
 /* Display */
-input {
+.display {
     width: 100%;
     padding: 20px;
     margin-bottom: 24px;
@@ -52,25 +66,24 @@ input {
     background: rgba(255, 255, 255, 0.14);
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.45);
     font-family: 'JetBrains Mono', monospace;
-    pointer-events: none;
 }
 
-/* Buttons grid */
+/* Grid */
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 14px;
 }
 
-/* Base button */
+/* Buttons */
 button {
     padding: 15px;
     font-size: 1.35rem;
-    border-radius: 14px;
+    border-radius: var(--radius-md);
     border: none;
     cursor: pointer;
     color: white;
-    background: rgba(255, 255, 255, 0.16);
+    background: var(--color-number);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
     transition: transform 0.2s ease;
 }
@@ -84,51 +97,40 @@ button:focus-visible {
     outline-offset: 2px;
 }
 
-/* Numbers */
+/* Types */
 .number {
     font-family: 'JetBrains Mono', monospace;
 }
 
-/* Zero */
-.zero {
-    grid-column: span 2;
-}
-
-/* Operators */
 .operator {
-    background: linear-gradient(135deg, #fcbf49, #f77f00);
+    background: var(--color-operator);
     color: #1a1a1a;
     font-weight: 600;
 }
 
-/* Clear */
 .clear {
-    background: linear-gradient(135deg, #e63946, #c1121f);
+    background: var(--color-clear);
     font-weight: 600;
 }
 
-/* Equal */
 .equal {
     grid-column: span 3;
-    background: linear-gradient(135deg, #2ec4b6, #00b4a6);
+    background: var(--color-equal);
     font-weight: 600;
+}
+
+.zero {
+    grid-column: span 2;
 }
 
 /* Responsive */
 @media (max-width: 480px) {
-    input {
+    .display {
         font-size: 1.7rem;
     }
 
     button {
         font-size: 1.2rem;
         padding: 14px;
-    }
-}
-
-/* Touch devices */
-@media (hover: none) {
-    button:hover {
-        transform: none;
     }
 }

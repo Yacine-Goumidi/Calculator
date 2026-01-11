@@ -1,31 +1,65 @@
-let currentExpression = '';
-const resultInput = document.getElementById('result');
+const display = document.getElementById('result');
+const buttons = document.querySelector('.buttons');
 
-function appendNumber(value) {
-    currentExpression += value;
-    resultInput.value = currentExpression;
+const state = {
+    expression: ''
+};
+
+buttons.addEventListener('click', (event) => {
+    const button = event.target;
+
+    if (button.dataset.value) {
+        appendValue(button.dataset.value);
+    }
+
+    if (button.dataset.operator) {
+        appendOperator(button.dataset.operator);
+    }
+
+    if (button.dataset.action === 'clear') {
+        clearDisplay();
+    }
+
+    if (button.dataset.action === 'calculate') {
+        calculate();
+    }
+});
+
+function appendValue(value) {
+    state.expression += value;
+    updateDisplay();
 }
 
 function appendOperator(operator) {
-    currentExpression += ` ${operator} `;
-    resultInput.value = currentExpression;
+    state.expression += ` ${operator} `;
+    updateDisplay();
 }
 
-function calculateResult() {
-    try {
-        const sanitizedExpression = currentExpression
-            .replace(/÷/g, '/')
-            .replace(/×/g, '*');
+function clearDisplay() {
+    state.expression = '';
+    updateDisplay();
+}
 
-        currentExpression = eval(sanitizedExpression);
-        resultInput.value = currentExpression;
-    } catch (error) {
-        resultInput.value = 'Error';
-        currentExpression = '';
+function calculate() {
+    try {
+        const result = Function(
+            `"use strict"; return (${sanitize(state.expression)})`
+        )();
+
+        state.expression = result.toString();
+        updateDisplay();
+    } catch {
+        state.expression = '';
+        display.value = 'Error';
     }
 }
 
-function clearResult() {
-    currentExpression = '';
-    resultInput.value = '';
+function sanitize(expression) {
+    return expression
+        .replace(/÷/g, '/')
+        .replace(/×/g, '*');
+}
+
+function updateDisplay() {
+    display.value = state.expression;
 }

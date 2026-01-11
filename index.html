@@ -8,41 +8,47 @@
 </head>
 <body>
 
-    <div class="calculator">
-        <div class="title">Calculatrice</div>
+<main class="calculator">
+    <h1 class="title">Calculatrice</h1>
 
-        <input type="text" id="result" disabled>
+    <input
+        type="text"
+        id="result"
+        class="display"
+        aria-label="Résultat"
+        readonly
+    >
 
-        <div class="buttons">
-            <!-- Row 1 -->
-            <button class="number" onclick="appendNumber('1')">1</button>
-            <button class="number" onclick="appendNumber('2')">2</button>
-            <button class="number" onclick="appendNumber('3')">3</button>
-            <button class="operator" onclick="appendOperator('+')">+</button>
+    <div class="buttons">
+        <!-- Ligne 1 -->
+        <button class="number" data-value="1">1</button>
+        <button class="number" data-value="2">2</button>
+        <button class="number" data-value="3">3</button>
+        <button class="operator" data-operator="+">+</button>
 
-            <!-- Row 2 -->
-            <button class="number" onclick="appendNumber('4')">4</button>
-            <button class="number" onclick="appendNumber('5')">5</button>
-            <button class="number" onclick="appendNumber('6')">6</button>
-            <button class="operator" onclick="appendOperator('-')">−</button>
+        <!-- Ligne 2 -->
+        <button class="number" data-value="4">4</button>
+        <button class="number" data-value="5">5</button>
+        <button class="number" data-value="6">6</button>
+        <button class="operator" data-operator="-">−</button>
 
-            <!-- Row 3 -->
-            <button class="number" onclick="appendNumber('7')">7</button>
-            <button class="number" onclick="appendNumber('8')">8</button>
-            <button class="number" onclick="appendNumber('9')">9</button>
-            <button class="operator" onclick="appendOperator('*')">×</button>
+        <!-- Ligne 3 -->
+        <button class="number" data-value="7">7</button>
+        <button class="number" data-value="8">8</button>
+        <button class="number" data-value="9">9</button>
+        <button class="operator" data-operator="*">×</button>
 
-            <!-- Row 4 -->
-            <button class="number zero" onclick="appendNumber('0')">0</button>
-            <button class="number" onclick="appendNumber('.')">.</button>
-            <button class="operator" onclick="appendOperator('/')">÷</button>
+        <!-- Ligne 4 -->
+        <button class="number zero" data-value="0">0</button>
+        <button class="number" data-value=".">.</button>
+        <button class="operator" data-operator="/">÷</button>
 
-            <!-- Row 5 -->
-            <button class="clear" onclick="clearResult()">C</button>
-            <button class="equal" onclick="calculateResult()">=</button>
-        </div>
+        <!-- Ligne 5 -->
+        <button class="clear" data-action="clear">C</button>
+        <button class="equal" data-action="calculate">=</button>
     </div>
+</main>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
