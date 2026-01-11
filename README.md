@@ -1,4 +1,4 @@
-# Calculator Portfolio
+# Calculator
 
 ![Calculator Preview](/Assets/CalculatorScreenshot.png)
 
