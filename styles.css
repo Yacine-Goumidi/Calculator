@@ -1,11 +1,12 @@
-/* Reset */
+/* ───────────────────────── */
+/* Reset & Base Styles       */
+/* ───────────────────────── */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body */
 body {
     display: flex;
     justify-content: center;
@@ -16,18 +17,19 @@ body {
     font-family: 'Inter', 'Roboto', sans-serif;
 }
 
-/* Calculator */
+/* ───────────────────────── */
+/* Calculator Container      */
+/* ───────────────────────── */
 .calculator {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    padding: 28px;
-    border-radius: 22px;
     width: 100%;
     max-width: 340px;
-    box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    padding: 28px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Title */
@@ -40,30 +42,32 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Display */
+/* Display / Screen */
 input {
     width: 100%;
     padding: 18px;
-    font-size: 1.8rem;
-    border-radius: 14px;
-    border: none;
-    background: rgba(255, 255, 255, 0.12);
-    color: white;
-    text-align: right;
-    font-weight: 500;
     margin-bottom: 22px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 14px;
+    text-align: right;
+    color: white;
+    background: rgba(255, 255, 255, 0.12);
     box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4);
     pointer-events: none;
 }
 
-/* Buttons grid */
+/* ───────────────────────── */
+/* Buttons Grid              */
+/* ───────────────────────── */
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 14px;
 }
 
-/* Buttons base */
+/* Base Button Styles */
 button {
     padding: 16px;
     font-size: 1.4rem;
@@ -72,13 +76,12 @@ button {
     cursor: pointer;
     color: white;
     background: rgba(255, 255, 255, 0.14);
-    box-shadow:
-        0 6px 14px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-/* Hover & Active */
+/* Button States */
 button:hover {
     transform: translateY(-2px);
     background: rgba(255, 255, 255, 0.18);
@@ -88,42 +91,55 @@ button:active {
     transform: scale(0.96);
 }
 
-/* Operators */
-.operator {
-    background: linear-gradient(135deg, #ffb703, #fb8500);
-    color: #1a1a1a;
-    font-weight: 600;
-}
-
-/* Clear */
-.clear {
-    background: linear-gradient(135deg, #ef476f, #d62839);
-    font-weight: 600;
-}
-
-/* Equal */
-.equal {
-    grid-column: span 2;
-    background: linear-gradient(135deg, #06d6a0, #00b894);
-    font-weight: 600;
-}
-
-/* Numbers */
-.number {
-    background: rgba(255, 255, 255, 0.16);
-}
-
-/* Focus accessibility */
 button:focus-visible {
     outline: 2px solid #00c6ff;
     outline-offset: 2px;
 }
 
 /* ───────────────────────── */
-/* 📱 Mobile (smartphones)   */
+/* Button Types              */
+/* ───────────────────────── */
+.operator {
+    background: linear-gradient(135deg, #ffb703, #fb8500);
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.operator:hover {
+    background: linear-gradient(135deg, #ffc933, #ff9f1c);
+}
+
+.clear {
+    background: linear-gradient(135deg, #ef476f, #d62839);
+    font-weight: 600;
+}
+
+.clear:hover {
+    background: linear-gradient(135deg, #ff5c8a, #e63946);
+}
+
+.equal {
+    grid-column: span 2;
+    background: linear-gradient(135deg, #06d6a0, #00b894);
+    font-weight: 600;
+}
+
+.equal:hover {
+    background: linear-gradient(135deg, #1dd3b0, #00cec9);
+}
+
+.number {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.number:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+/* ───────────────────────── */
+/* Responsive – Mobile First */
 /* ───────────────────────── */
 @media (max-width: 480px) {
-
     .calculator {
         padding: 20px;
         border-radius: 18px;
@@ -145,11 +161,7 @@ button:focus-visible {
     }
 }
 
-/* ───────────────────────── */
-/* 📱📱 Tablettes            */
-/* ───────────────────────── */
 @media (max-width: 768px) {
-
     .calculator {
         max-width: 420px;
     }
@@ -160,7 +172,7 @@ button:focus-visible {
 }
 
 /* ───────────────────────── */
-/* ✋ UX tactile (no hover)  */
+/* UX Tactile (Mobile / No Hover) */
 /* ───────────────────────── */
 @media (hover: none) {
     button:hover {
